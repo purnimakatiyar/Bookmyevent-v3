@@ -4,8 +4,7 @@ from os import path
 queries = None
 prompts = None
 menu = None
-inputs = None
-constant = None
+constants = None
  
 path_current_directory = path.dirname(__file__)
  
