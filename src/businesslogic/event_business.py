@@ -76,11 +76,10 @@ class Event:
             
             event = self.check_event_by_id(event_id)
             if event is True:
-                print(self.user_id)
                 self.db.delete_item(queries["DELETE_EVENT"], (self.user_id, event_id,)) 
                 return True   
             else:
-                raise CustomException(404, Constants.DOES_NOT_EXIST, Constants.NO_EVENT_FOUND_MSG)
+                raise CustomException(400, Constants.BAD_REQUEST, Constants.BAD_REQUEST_MSG)
             
         except pymysql.Error as error:
             logger.error("{} occurred in Database".format(error))
@@ -186,8 +185,9 @@ class Event:
         """
         
         try:
-            print("HELLOOOOOOOOOOO")
+            
             events = self.db.get_items(queries["FILTER_PRICE"], (price,))
+            
             if events is not None:
                 return events
             elif events is None:
@@ -264,7 +264,7 @@ class Event:
                     return result
                 
             else:
-                raise CustomException(404, Constants.DOES_NOT_EXIST, Constants.NO_EVENT_EXIST_MSG)
+                raise CustomException(400, Constants.BAD_REQUEST, Constants.BAD_REQUEST_MSG)
        
         except pymysql.Error as err:
             logger.error("{} occurred in Database".format(err))
@@ -286,7 +286,8 @@ class Event:
                     return result
                 
             else:
-                raise CustomException(404, Constants.DOES_NOT_EXIST, Constants.NO_EVENT_EXIST_MSG)
+                raise CustomException(400, Constants.BAD_REQUEST, Constants.BAD_REQUEST_MSG)
+
         
         except pymysql.Error as err:
             logger.error("{} occurred in Database".format(err))
@@ -311,7 +312,7 @@ class Event:
                     return result
                 
             else:
-                raise CustomException(404, Constants.DOES_NOT_EXIST, Constants.NO_EVENT_EXIST_MSG)
+                raise CustomException(400, Constants.BAD_REQUEST, Constants.BAD_REQUEST_MSG)
         
         except pymysql.Error as err:
             logger.error("{} occurred in Database".format(err))
@@ -331,7 +332,7 @@ class Event:
                 if result is True:
                     return result
             else:
-                raise CustomException(404, Constants.DOES_NOT_EXIST, Constants.NO_EVENT_EXIST_MSG)
+                raise CustomException(400, Constants.BAD_REQUEST, Constants.BAD_REQUEST_MSG)
         
         except pymysql.Error as err:
             logger.error("{} occurred in Database".format(err))

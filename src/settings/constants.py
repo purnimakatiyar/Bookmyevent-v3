@@ -64,3 +64,5 @@ class Constants:
     ACTIVE = "active"
     INTERNAL_SERVER_ERROR_MSG = "Some error occurred on the server side."
     MANAGER_ADDED_MSG = "Manager added successfully"
+    BAD_REQUEST_MSG = "Request is invalid."
+    BAD_REQUEST = "BadRequest"
