@@ -20,7 +20,7 @@ class UserView(MethodView):
     def post(self, user_data):
         auth = AddUserController()
         response = auth.signup(user_data)
-        return response
+        return jsonify(response), response["status"]
         
 
 @blp.route('/manager')
@@ -74,6 +74,9 @@ class ProfileView(MethodView):
         return user.view_profile(payload["id"])
        
        
+# @blp.route('/users')
+# class UserOperationView(MethodView):
+      
     @jwt_required()
     @blp.doc(parameters=[{'name': 'Authorization', 'in': 'header', 'description': 'Authorization: Bearer <access_token>', 'required': 'true'}])
     @blp.arguments(UpdateUserSchema)

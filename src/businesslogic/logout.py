@@ -30,8 +30,9 @@ class Token:
         try:
             jti_access_token = jwt_payload["jti"]
 
-            DBConnection().update_item(queries["UPDATE_TOKEN_STATUS"], (Constants.REVOKED, jti_access_token,))
-            return
+            result = DBConnection().update_item(queries["UPDATE_TOKEN_STATUS"], (Constants.REVOKED, jti_access_token,))
+            if result is True:
+                return True
             
         except pymysql.Error as err:
             logger.error("{} occurred in Database".format(err))

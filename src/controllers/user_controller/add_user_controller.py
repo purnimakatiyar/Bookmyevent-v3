@@ -30,10 +30,9 @@ class AddUserController:
             role = Constants.CUSTOMER
             )
             result = user.signup()
-    
             if result is True:
                 success_result = {
-                        Constants.STATUS: 201,
+                        Constants.STATUS: 200,
                         Constants.MESSAGE: Constants.USER_ADDED_MSG
                     }
                 return jsonify(success_result),success_result["status"]

@@ -70,6 +70,7 @@ class BookEvents:
                     raise CustomException(422, Constants.UNPROCESSABLE_ENTITY, Constants.NOT_AVAILABLE_TICKETS_MSG)
                 else:
                     get_event_detail = event_obj.get_event_by_id(event_id)
+                    print(get_event_detail)
                     event_id = get_event_detail[0]
                     updated_ticket_qty = current_ticket_qty[0] - int(tickets)
                     self.db.update_item(queries["UPDATE_TICKET_QTY"], (updated_ticket_qty, event_id,))
