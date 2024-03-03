@@ -7,6 +7,7 @@ menu = None
 constants = None
 
 path_current_directory = path.dirname(__file__)
+ 
 
 filepath = path.join(path_current_directory , "../config.json")
 
@@ -16,6 +17,3 @@ with open(filepath, "r") as file:
     menu = get_data["menu"]
     prompts = get_data["prompts"]
     constants = get_data["constants"]
-    
-    
-    
