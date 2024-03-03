@@ -1,3 +1,6 @@
+This repositry refers to the server side code made with flask following REST API implementation for the application Book My Event.
+
+
 Authentication 🔐
 
 Sign In: Personalized login credentials for administrators, event managers, and customers.
