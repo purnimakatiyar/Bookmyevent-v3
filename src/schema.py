@@ -1,4 +1,4 @@
-from marshmallow import Schema, fields, validate, ValidationError
+from marshmallow import Schema, fields, validate
 from settings.regex import Regex
 
 
@@ -8,7 +8,6 @@ class AuthSchema(Schema):
     
     
 class UserSchema(Schema):
-    
     username = fields.Str(required=True, validate=validate.Regexp(Regex.USERNAME))
     password = fields.Str(required = True, validate=validate.Regexp(Regex.PASSWORD))
     name = fields.Str(required = True, validate=validate.Regexp(Regex.NAME))

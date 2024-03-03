@@ -20,6 +20,7 @@ class LoginController:
         Handle user login.
         """
         try:
+            print("2")
             auth = Authenticate(username = auth_data["username"], password = auth_data["password"])
             response = auth.login()
             if response is not None:

@@ -18,12 +18,12 @@ class LogoutController:
         Handle user logout.
         """
         try:
-    
-            Token.revoke_token(get_jwt())
-            success_result = {
-                Constants.STATUS: 204
-            }
-            return jsonify(success_result),success_result["status"]
+            result = Token.revoke_token(get_jwt())
+            if result is True:
+                success_result = {
+                    Constants.STATUS: 204
+                }
+                return jsonify(success_result),success_result["status"]
               
         except (DBException, CustomException) as err:
             if isinstance(err, CustomException):

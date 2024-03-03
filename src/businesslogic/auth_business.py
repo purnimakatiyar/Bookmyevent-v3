@@ -37,10 +37,12 @@ class Authenticate:
         """
         
         try:
-        
+            print("3")
             user = User(username = self.username)
             result = user.check_user()
-        
+            
+            print(f"Inside auth business, result = {result}")
+            
             if result is not None:
                 user_password = self.get_password(self.username)
         

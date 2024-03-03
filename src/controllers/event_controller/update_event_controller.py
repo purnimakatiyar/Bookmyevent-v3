@@ -27,6 +27,7 @@ class UpdateEventController:
         """Method to update the user details"""
               
         try:
+            print(user_id, event_id, event_data)
             event = Event(user_id = user_id, event_id = event_id)
             if event_data["event_name"] is not None:
                 event.update_event_name(event_id, event_data["event_name"])
@@ -54,3 +55,136 @@ class UpdateEventController:
             return jsonify(failure_result),failure_result["status"]
              
              
+    # def update_event_name(self, event_id, event_name, user_id):
+    #     """
+    #     Update the name of an event.
+    #     """
+        
+    #     try:
+    #         event = Event(user_id = user_id, event_id = event_id)
+    #         event.update_event_name(event_name)
+            
+    #         success_result = {
+    #             Constants.STATUS: 200,
+    #             Constants.MESSAGE: Constants.UPDATE_EVENT_NAME_MSG
+    #         }
+    #         return jsonify(success_result),success_result["status"]
+            
+    #     except (CustomException, DBException) as err:
+    #         if isinstance(err, CustomException):
+    #             logger.error("Custom error handled {}".format(err.error))
+    #         failure_result = {
+    #             Constants.STATUS: err.status,
+    #             Constants.ERROR: err.error,
+    #             Constants.MESSAGE: err.message
+    #         }
+            
+    #         return jsonify(failure_result),failure_result["status"]
+           
+           
+    # def update_event_date(self, event_id, event_date, user_id):
+    #     """
+    #     Update the date of an event.
+    #     """
+        
+    #     try:
+    #         event = Event(user_id = user_id, event_id = event_id)
+    #         event.update_event_date(event_date)
+            
+    #         success_result = {
+    #             Constants.STATUS: 200,
+    #             Constants.MESSAGE: Constants.UPDATE_EVENT_DATE_MSG
+    #         }
+    #         return jsonify(success_result),success_result["status"]
+            
+    #     except (CustomException, DBException) as err:
+    #         if isinstance(err, CustomException):
+    #             logger.error("Custom error handled {}".format(err.error))
+    #         failure_result = {
+    #             Constants.STATUS: err.status,
+    #             Constants.ERROR: err.error,
+    #             Constants.MESSAGE: err.message
+    #         }
+    #         return jsonify(failure_result),failure_result["status"]
+        
+        
+    # def update_event_price(self, event_id, price, user_id):
+    #     """
+    #     Update the price of an event.
+    #     """
+        
+    #     try:
+    #         event = Event(user_id = user_id, event_id = event_id)
+    #         event.update_event_price(price)
+           
+    #         success_result = {
+    #             Constants.STATUS: 200,
+    #             Constants.MESSAGE: Constants.UPDATE_EVENT_PRICE_MSG
+    #         }
+    #         return jsonify(success_result),success_result["status"]
+            
+    #     except (CustomException, DBException) as err:
+    #         if isinstance(err, CustomException):
+    #             logger.error("Custom error handled {}".format(err.error))
+    #         failure_result = {
+    #             Constants.STATUS: err.status,
+    #             Constants.ERROR: err.error,
+    #             Constants.MESSAGE: err.message
+    #         }
+    #         return jsonify(failure_result),failure_result["status"]
+        
+        
+    # def update_event_category(self, event_id, category, user_id):
+    #     """
+    #     Update the category of an event.
+    #     """
+        
+    #     try:
+    #         event = Event(user_id = user_id, event_id = event_id)
+    #         event.update_event_category(category)
+            
+    #         success_result = {
+    #             Constants.STATUS: 200,
+    #             Constants.MESSAGE: Constants.UPDATE_EVENT_CATEGORY_MSG
+    #         }
+    #         return jsonify(success_result),success_result["status"]
+            
+    #     except (CustomException, DBException) as err:
+    #         if isinstance(err, CustomException):
+    #             logger.error("Custom error handled {}".format(err.error))
+    #         failure_result = {
+    #             Constants.STATUS: err.status,
+    #             Constants.ERROR: err.error,
+    #             Constants.MESSAGE: err.message
+    #         }
+    #         return jsonify(failure_result),failure_result["status"]
+            
+            
+    # def update_event_location(self, event_id, location, user_id):
+    #     """
+    #     Update the location of an event.
+    #     """
+        
+    #     try:
+    #         event = Event(user_id = user_id, event_id = event_id)
+    #         event.update_event_location(location)
+            
+    #         success_result = {
+    #             Constants.STATUS: 200,
+    #             Constants.MESSAGE: "Updated event category successfully."
+    #         }
+    #         return jsonify(success_result),success_result["status"]
+                
+    #     except (CustomException, DBException) as err:
+    #         if isinstance(err, CustomException):
+    #             logger.error("Custom error handled {}".format(err.error))
+    #         failure_result = {
+    #             Constants.STATUS: err.status,
+    #             Constants.ERROR: err.error,
+    #             Constants.MESSAGE: err.message
+    #         }
+    #         return jsonify(failure_result),failure_result["status"]
+            
+           
+    
+    
