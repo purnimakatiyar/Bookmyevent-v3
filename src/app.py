@@ -7,6 +7,7 @@ from routes.user import blp as UserBlueprint
 from utils.jwt_config import initialise_jwt_config
 from routes.event import blp as EventBlueprint
 from routes.booked_events import blp as BookedEventsBlueprint
+from flask_cors import CORS
 
 logging.basicConfig(
     format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)-d] %(message)s',
@@ -17,7 +18,7 @@ logging.basicConfig(
 
 def create_app():
     app = Flask(__name__)
-    
+    CORS(app)
     app.config["API_TITLE"] = "BOOK MY EVENT API"
     app.config["API_VERSION"] = "v1"
     app.config["OPENAPI_VERSION"] = "3.0.3"
