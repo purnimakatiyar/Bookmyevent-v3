@@ -51,7 +51,7 @@ class ViewEventController:
         """
         try:
             event = Event(event_name = event_id)
-            event_details = event.get_event()
+            event_details = event.get_event_by_id(event_id)
             for event_data in event_details:
                 success_result = {Constants.EVENT_NAME: event_data[0],
                         Constants.EVENT_DATE: event_data[1],
