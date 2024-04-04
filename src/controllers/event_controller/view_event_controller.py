@@ -52,15 +52,17 @@ class ViewEventController:
         try:
             event = Event(event_name = event_id)
             event_details = event.get_event_by_id(event_id)
+        
             for event_data in event_details:
-                success_result = {Constants.EVENT_NAME: event_data[0],
-                        Constants.EVENT_DATE: event_data[1],
-                        Constants.LOCATION: event_data[2],
-                        Constants.PRICE: event_data[3],
-                        Constants.CATEGORY: event_data[4],
-                        Constants.TICKET_QTY: event_data[5]
+                event_id, user_id, event_name, event_date, location, price, category, ticket_qty = event_details
+                success_result = {Constants.EVENT_NAME: event_name,
+                        Constants.EVENT_DATE: event_date,
+                        Constants.LOCATION: location,
+                        Constants.PRICE: price,
+                        Constants.CATEGORY: category,
+                        Constants.TICKET_QTY: ticket_qty
                         }
-                return jsonify(success_result),success_result["status"]
+                return jsonify(success_result),200
                 
         except (CustomException, DBException) as err:
             if isinstance(err, CustomException):
