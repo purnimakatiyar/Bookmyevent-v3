@@ -24,7 +24,7 @@ class LoginController:
             auth = Authenticate(username = auth_data["username"], password = auth_data["password"])
             response = auth.login()
             if response is not None:
-                success_result = {Constants.STATUS: 200, Constants.MESSAGE: "Logged in successfully", Constants.ACCESS_TOKEN: response["access_token"], Constants.REFRESH_TOKEN: response["refresh_token"]}
+                success_result = {Constants.STATUS: 200, Constants.MESSAGE: "Logged in successfully", Constants.ACCESS_TOKEN: response["access_token"], Constants.REFRESH_TOKEN: response["refresh_token"], "role": response["role"]}
                 return jsonify(success_result),success_result["status"]
             
         except (DBException, CustomException) as err:
