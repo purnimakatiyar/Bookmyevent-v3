@@ -45,7 +45,7 @@ class Authenticate:
             
             if result is not None:
                 user_password = self.get_password(self.username)
-        
+                role = self.get_role()
                 if user_password[0] and pbkdf2_sha256.verify(self.password, user_password[0]):
                     access_token = create_access_token(identity=self.username, fresh=True)
                     refresh_token = create_refresh_token(identity=self.username)
@@ -53,8 +53,8 @@ class Authenticate:
                     user_id = user.get_user_id(self.username)
                     self.db.insert_item(queries["INSERT_TOKEN_DETAILS"],
                              (user_id, get_jti(access_token), get_jti(refresh_token), Constants.ACTIVE))
-                    token_dict = {Constants.ACCESS_TOKEN: access_token, Constants.REFRESH_TOKEN: refresh_token}
-                    return token_dict
+                    response = {'role': role, Constants.ACCESS_TOKEN: access_token, Constants.REFRESH_TOKEN: refresh_token}
+                    return response
                     
                 else:
                     raise CustomException(401, Constants.INVALID_CREDENTIALS, Constants.WRONG_CREDENTIALS_MSG)
