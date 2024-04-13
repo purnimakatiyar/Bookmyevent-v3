@@ -61,6 +61,17 @@ class ShowEventView(MethodView):
         result = event.remove_event(payload["id"], event_id)
         return result
 
+
+@blp.route('/managers/events')
+class ShowUserEventView(MethodView):
+    
+    @role_access(['Manager'])
+    def get(self):
+        payload = get_jwt() 
+        event = ViewEventController()
+        result = event.list_events_by_user(payload["id"])
+        return result     
+
         
 @blp.route('/events')
 class EventsView(MethodView):
