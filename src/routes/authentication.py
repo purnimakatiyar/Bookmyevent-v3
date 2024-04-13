@@ -13,9 +13,7 @@ class AuthenticateView(MethodView):
     
     @blp.arguments(AuthSchema)
     def post(self, auth_data):
-        print("0")
         auth = LoginController()
-        print("hhhhhhhhhhhhhh")
         response = auth.login(auth_data)
         return response
         
