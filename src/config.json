@@ -34,6 +34,8 @@
         "UPDATE_EVENT_RATING": "UPDATE events SET rating = %s WHERE event_id = %s AND user_id = %s",
         "UPDATE_EVENT_PRICE": "UPDATE events SET price = %s WHERE event_id = %s AND user_id = %s",
         "UPDATE_EVENT_CATEGORY": "UPDATE events SET category = %s WHERE event_id = %s AND user_id = %s",
+        "UPDATE_EVENT_LOCATION": "UPDATE events SET location = %s WHERE event_id = %s AND user_id = %s",
+        "UPDATE_EVENT_TICKET": "UPDATE events SET ticket_qty = %s WHERE event_id = %s AND user_id = %s",
         "SEARCH_BY_EVENT_NAME": "SELECT * FROM events WHERE event_name LIKE %s",
         "UPDATE_PASSWORD": "UPDATE authenticate SET password = %s WHERE user_id = %s",
         "UPDATE_NAME": "UPDATE userdetails SET name = %s WHERE user_id = %s",
