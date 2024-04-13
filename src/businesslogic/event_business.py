@@ -350,7 +350,7 @@ class Event:
             logger.error("{} occurred in Database".format(err))
             raise DBException(500, Constants.INTERNAL_SERVER_ERROR, Constants.INTERNAL_SERVER_ERROR_MSG)
 
-     def update_event_ticket_qty(self, event_id, ticket_qty):
+    def update_event_ticket_qty(self, event_id, ticket_qty):
         """
         Method to update the event ticket quantity
         """
