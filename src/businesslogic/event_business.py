@@ -161,7 +161,7 @@ class Event:
               
             
         
-    def list_events(self) ->tuple:
+    def list_user_events(self) ->tuple:
         """
         Method to list the events particular to a manager for the manager itself
         """
