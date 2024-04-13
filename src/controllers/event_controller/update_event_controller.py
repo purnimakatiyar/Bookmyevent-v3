@@ -39,8 +39,7 @@ class UpdateEventController:
                 event.update_event_category(event_id, event_data["category"])
             if event_data["location"] is not None:
                 event.update_event_location(event_id, event_data["location"])
-            if event_data["ticket_qty"] is not None:
-                event.update_event_location(event_id, event_data["ticket_qty"])
+            
                 
             success_result = {
                 Constants.STATUS: 200, 
