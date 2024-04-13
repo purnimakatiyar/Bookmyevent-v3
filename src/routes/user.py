@@ -20,7 +20,7 @@ class UserView(MethodView):
     def post(self, user_data):
         auth = AddUserController()
         response = auth.signup(user_data)
-        return jsonify(response), response["status"]
+        return response
         
 
 @blp.route('/manager')
