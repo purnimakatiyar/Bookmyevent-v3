@@ -37,7 +37,6 @@ class User:
         """
         Check if a user exists in the database.
         """
-        print("4")
         return self.db.get_item(queries["SEARCH_EXIST_USER_IN_AUTHENTICATE"], (self.username,))
     
     def check_manager(self, username) -> None:
