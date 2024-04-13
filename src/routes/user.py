@@ -73,9 +73,6 @@ class ProfileView(MethodView):
         user = ViewUserController()
         return user.view_profile(payload["id"])
        
-       
-# @blp.route('/users')
-# class UserOperationView(MethodView):
       
     @jwt_required()
     @blp.doc(parameters=[{'name': 'Authorization', 'in': 'header', 'description': 'Authorization: Bearer <access_token>', 'required': 'true'}])
