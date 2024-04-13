@@ -313,7 +313,7 @@ class Event:
     def update_event_price(self, event_id, price):
         
         """
-        Method to update the event location
+        Method to update the event price
         """
         try: 
             if self.check_event_by_id(event_id) is True: 
@@ -341,6 +341,24 @@ class Event:
                 result = self.db.update_item(
                 queries["UPDATE_EVENT_CATEGORY"],
                 (category, event_id, self.user_id))
+                if result is True:
+                    return result
+            else:
+                raise CustomException(404, Constants.DOES_NOT_EXIST, Constants.NO_EVENT_EXIST_MSG)
+        
+        except pymysql.Error as err:
+            logger.error("{} occurred in Database".format(err))
+            raise DBException(500, Constants.INTERNAL_SERVER_ERROR, Constants.INTERNAL_SERVER_ERROR_MSG)
+
+     def update_event_ticket_qty(self, event_id, ticket_qty):
+        """
+        Method to update the event ticket quantity
+        """
+        try: 
+            if self.check_event_by_id(event_id) is True: 
+                result = self.db.update_item(
+                queries["UPDATE_EVENT_TICKET"],
+                (ticket_qty, event_id, self.user_id))
                 if result is True:
                     return result
             else:
