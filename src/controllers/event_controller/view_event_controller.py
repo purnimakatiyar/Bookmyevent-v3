@@ -73,15 +73,14 @@ class ViewEventController:
             return jsonify(failure_result),failure_result["status"]
             
           
-    def list_events(self, username):
+    def list_events_by_user(self, user_id):
         """
         Retrieves and returns a list of events associated with a specific user identified by their username.
         """
         
         try:
-            user_id = self.user.get_user_id(username)
             event = Event(user_id = user_id)
-            events = event.list_events()
+            events = event.list_user_events()
             success_result = self.events_list_to_dict(events)
             return jsonify(success_result),success_result["status"]
         
