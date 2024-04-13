@@ -299,7 +299,7 @@ class Event:
             if self.check_event_by_id(event_id) is True: 
                 result = self.db.update_item(
                     queries["UPDATE_EVENT_LOCATION"],
-                    (event_date, event_id, self.user_id))
+                    (location, event_id, self.user_id))
                 if result is True:
                     return result
                 
