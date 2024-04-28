@@ -44,7 +44,7 @@ class Authenticate:
                 user_password = self.get_password(self.username)
                 role = self.get_role()
                 if user_password[0] and pbkdf2_sha256.verify(self.password, user_password[0]):
-                    access_token = create_access_token(identity=self.username, fresh=True)
+                    access_token = create_access_token(identity=self.username, fresh=True, expires_delta=False) #change the expires_delta
                     refresh_token = create_refresh_token(identity=self.username)
                     user = User()
                     user_id = user.get_user_id(self.username)
